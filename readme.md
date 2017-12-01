@@ -2,6 +2,8 @@
 
 > Delay a promise a specified amount of time
 
+> Babel-transpiled fork of delay
+
 
 ## Install
 

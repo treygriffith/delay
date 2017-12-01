@@ -13,11 +13,21 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo index.js && ava test.js",
+    "build": "babel index.js --out-file index-transpiled.js",
+    "prepublish": "npm test && npm run build"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   },
   "files": [
-    "index.js"
+    "index.js",
+    "index-transpiled.js"
   ],
+  "module": "index.js",
+  "main": "index-transpiled.js",
   "keywords": [
     "promise",
     "resolve",
@@ -42,6 +52,8 @@
   },
   "devDependencies": {
     "ava": "*",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "bluebird": "^3.3.5",
     "in-range": "^1.0.0",
     "loud-rejection": "^1.3.0",
